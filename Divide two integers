@@ -1,0 +1,43 @@
+class Solution {
+    public int divide(int dividend, int divisor) {
+
+      
+        if (dividend == Integer.MIN_VALUE && divisor == -1) {
+            return Integer.MAX_VALUE;
+        }
+
+    
+        boolean negative = (dividend < 0) ^ (divisor < 0);
+
+        long n = dividend;
+        long d = divisor;
+
+        if (n < 0)
+            n = -n;
+
+        if (d < 0)
+            d = -d;
+
+        long result = 0;
+
+        
+        while (n >= d) {
+
+            long temp = d;
+            long multiple = 1;
+
+            while (n >= temp + temp) {
+                temp = temp + temp;
+                multiple = multiple + multiple;
+            }
+
+            n = n - temp;
+            result = result + multiple;
+        }
+
+        if (negative)
+            result = -result;
+
+        return (int) result;
+    }
+}
