@@ -1,0 +1,10 @@
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int altitude=0,best=0;
+        for(int v:gain){
+            altitude+=v;
+            if(altitude>best)best=altitude;
+        }
+        return best;
+    }
+}
