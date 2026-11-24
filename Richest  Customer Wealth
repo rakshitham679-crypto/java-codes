@@ -1,0 +1,11 @@
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int best=0;
+        for(int[] row:accounts){
+            int sum=0;
+            for(int v:row)sum+=v;
+            if(sum>best)best=sum;
+        }
+        return best;
+    }
+}
